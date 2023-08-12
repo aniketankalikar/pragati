@@ -17,6 +17,7 @@ public class Advanced_Arrays_Homework3 {
 
 		int arr[] = A.stream().mapToInt(Integer::intValue).toArray();
 
+		
 		int count = 0;
 		int N = arr.length;
 		int s = 0;
