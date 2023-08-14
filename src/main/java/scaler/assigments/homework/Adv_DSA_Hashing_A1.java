@@ -29,25 +29,21 @@ public class Adv_DSA_Hashing_A1 {
 			elementSet.add(A.get(i));
 		}
 
-		int counter = 0;
 		int ans = 0;
 
 		for (int i = 0; i < A.size(); i++) {
-			
-			if(elementSet.contains(A.get(i)-1))
-					continue;
-			
-			counter++;
-			int nextElement = A.get(i) + 1;
-			boolean found = elementSet.contains(nextElement);
-			while (found) {
-				counter++;
-				nextElement = nextElement + 1;
-				found = elementSet.contains(nextElement);
+			int counter = 0;
+			if (elementSet.contains(A.get(i) - 1))
+				continue;
+			else {
+				int ele = A.get(i);
+				while (elementSet.contains(ele)) {
+					counter++;
+					ele++;
 
+				}
 			}
-			ans = counter > ans ? counter : ans;
-			counter = 0;
+			ans = Math.max(ans, counter);
 		}
 
 		return ans;
