@@ -48,7 +48,6 @@ public class Adv_DSA_Hashing_A4 {
 		arrList.add(1);
 		arrList.add(5);
 		B.add(arrList);
-
 		ArrayList<Integer> result = new Adv_DSA_Hashing_A4().solve("10010", B);
 		System.out.println(result);
 	}
@@ -58,37 +57,63 @@ public class Adv_DSA_Hashing_A4 {
 		ArrayList<Integer> result = new ArrayList<Integer>();
 		TreeSet<Integer> treeSet = new TreeSet<Integer>();
 		String temp = A;
-		
-		for(int i=0;i<temp.length();i++)
-		{
-			if(temp.charAt(i) == '1')
+
+		for (int i = 0; i < temp.length(); i++) {
+			if (temp.charAt(i) == '1')
 				treeSet.add(i);
 		}
-		
+
 		for (ArrayList<Integer> arrayList : B) {
-			
+
 			int type = arrayList.get(0);
-			int index = arrayList.get(1);
+			int index = arrayList.get(1) - 1;
 
 			if (type == 1) {
 				StringBuilder string = new StringBuilder(temp);
-				string.setCharAt(index - 1, A.charAt(index - 1) == '0' ? '1' : '0');
+				if( temp.charAt(index) == '0')
+					string.setCharAt(index,'1');
+				else if ( temp.charAt(index) == '1')
+				string.setCharAt(index,'0');
+					
 				temp = string.toString();
 
 				// Update the treeset
-				if (treeSet.contains(index - 1)) {
-					treeSet.remove(index - 1);
+				if (treeSet.contains(index)) {
+					treeSet.remove(index);
 				} else {
-					treeSet.add(index - 1);
+					treeSet.add(index);
 				}
 
 			} else if (type == 2) {
 
 				if (!treeSet.isEmpty()) {
-					int lower = treeSet.lower(index - 1);
-					result.add(lower);
-				}
+					
+					if (treeSet.contains(index)) {
+						result.add(index + 1);
+					}
+					else
+					{
+						Integer lower = treeSet.lower(index);
+						Integer higher = treeSet.higher(index);
 
+						if (lower != null && higher == null) {
+							result.add(lower + 1);
+						} else if (higher != null && lower == null) {
+							result.add(higher + 1);
+						} else if (higher != null && lower != null) {
+							if ((index - lower) < (higher - index))
+								result.add(lower + 1);
+							else if ((index - lower) > (higher - index))
+								result.add(higher + 1);
+							else {
+								result.add(lower + 1);
+							}
+						}
+					}
+				}else
+				{
+					result.add(-1);
+				}
 			}
 		}
 
