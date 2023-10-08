@@ -3,14 +3,14 @@ package scaler.assigments.homework;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Int_DSA_Arrays_IP1 {
+public class Int_DSA_Arrays_Problems1_H2 {
 
     public static void main(String args[])
     {
         List<Integer> A = List.of(1, 6, 4, 2, 6, 9);
         List<Integer> B = List.of(2, 5, 7, 3, 2, 7);
 
-       int res =  new Int_DSA_Arrays_IP1().solve(new ArrayList<Integer>(A),new ArrayList<Integer>(B));
+       int res =  new Int_DSA_Arrays_Problems1_H2().solve(new ArrayList<Integer>(A),new ArrayList<Integer>(B));
         System.out.println(res);
     }
 
