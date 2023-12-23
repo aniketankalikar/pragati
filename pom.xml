@@ -4,6 +4,10 @@
     <groupId>com.pragati</groupId>
     <artifactId>pragati</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>hackerrank</module>
+    </modules>
 
     <properties>
         <jdk.version>11</jdk.version>
