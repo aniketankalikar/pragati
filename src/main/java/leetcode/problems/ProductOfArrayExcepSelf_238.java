@@ -1,4 +1,4 @@
-package leetcode.beginner.problems;
+package leetcode.problems;
 
 public class ProductOfArrayExcepSelf_238 {
 

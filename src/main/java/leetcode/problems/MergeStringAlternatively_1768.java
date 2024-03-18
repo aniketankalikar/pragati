@@ -1,4 +1,4 @@
-package leetcode.beginner;
+package leetcode.problems;
 
 public class MergeStringAlternatively_1768 {
 
