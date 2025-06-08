@@ -1,5 +1,8 @@
 package scaler.academy.contest1;
 
+/**
+ * THis is a DSA problem
+ */
 public class Question1 {
 	
 	public static void main(String args[])
